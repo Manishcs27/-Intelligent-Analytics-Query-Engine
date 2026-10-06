@@ -1,0 +1,58 @@
+[
+  {
+    "query": "Total sales in India for March",
+    "generated_logic": "{\"metric\":\"revenue\",\"group_by\":[],\"filters\":[{\"field\":\"month\",\"operator\":\"=\",\"value\":\"2024-03\"},{\"field\":\"country\",\"operator\":\"=\",\"value\":\"India\"}],\"aggregation\":\"sum\",\"rank\":null,\"contribution_percent\":false,\"target_comparison\":false,\"time_granularity\":\"none\",\"yoy\":false,\"nested\":null}",
+    "result": "[{\"value\": 108.0}]",
+    "confidence_score": 0.6,
+    "explanation": "Understood the query as metric=revenue, group_by=[], filters=[{'field': 'month', 'operator': '=', 'value': '2024-03'}, {'field': 'country', 'operator': '=', 'value': 'India'}], rank=None. The analytical plan was validated and then executed deterministically with pandas. No API key was configured, so the local fallback planner was used."
+  },
+  {
+    "query": "Top 2 cities by profit",
+    "generated_logic": "{\"metric\":\"profit\",\"group_by\":[\"city\"],\"filters\":[],\"aggregation\":\"sum\",\"rank\":{\"n\":2,\"order\":\"desc\",\"within_groups\":false},\"contribution_percent\":false,\"target_comparison\":false,\"time_granularity\":\"none\",\"yoy\":false,\"nested\":null}",
+    "result": "[{\"city\": \"New York\", \"value\": 200}, {\"city\": \"San Francisco\", \"value\": 180}]",
+    "confidence_score": 0.65,
+    "explanation": "Understood the query as metric=profit, group_by=['city'], filters=[], rank={'n': 2, 'order': 'desc', 'within_groups': False}. The analytical plan was validated and then executed deterministically with pandas. No API key was configured, so the local fallback planner was used."
+  },
+  {
+    "query": "Average order value by region",
+    "generated_logic": "{\"metric\":\"avg_order_value\",\"group_by\":[\"region\"],\"filters\":[],\"aggregation\":\"avg\",\"rank\":null,\"contribution_percent\":false,\"target_comparison\":false,\"time_granularity\":\"none\",\"yoy\":false,\"nested\":null}",
+    "result": "[{\"region\": \"APAC\", \"value\": 118.5}, {\"region\": \"EMEA\", \"value\": 799.3333333333334}, {\"region\": \"NA\", \"value\": 1087.4666666666667}]",
+    "confidence_score": 0.6,
+    "explanation": "Understood the query as metric=avg_order_value, group_by=['region'], filters=[], rank=None. The analytical plan was validated and then executed deterministically with pandas. No API key was configured, so the local fallback planner was used."
+  },
+  {
+    "query": "Which region missed its target in Feb?",
+    "generated_logic": "{\"metric\":\"revenue\",\"group_by\":[\"region\"],\"filters\":[{\"field\":\"month\",\"operator\":\"=\",\"value\":\"2024-02\"}],\"aggregation\":\"sum\",\"rank\":null,\"contribution_percent\":false,\"target_comparison\":true,\"time_granularity\":\"none\",\"yoy\":false,\"nested\":null}",
+    "result": "[{\"region\": \"APAC\", \"value\": 75.0, \"month\": \"2024-02\", \"target_revenue\": 6000, \"missed_target\": true}, {\"region\": \"EMEA\", \"value\": 255.0, \"month\": \"2024-02\", \"target_revenue\": 7500, \"missed_target\": true}, {\"region\": \"NA\", \"value\": 1116.0, \"month\": \"2024-02\", \"target_revenue\": 9500, \"missed_target\": true}]",
+    "confidence_score": 0.7,
+    "explanation": "Understood the query as metric=revenue, group_by=['region'], filters=[{'field': 'month', 'operator': '=', 'value': '2024-02'}], rank=None. The analytical plan was validated and then executed deterministically with pandas. No API key was configured, so the local fallback planner was used."
+  },
+  {
+    "query": "Sales contribution % by category",
+    "generated_logic": "{\"metric\":\"revenue\",\"group_by\":[\"product_category\"],\"filters\":[],\"aggregation\":\"sum\",\"rank\":null,\"contribution_percent\":true,\"target_comparison\":false,\"time_granularity\":\"none\",\"yoy\":false,\"nested\":null}",
+    "result": "[{\"product_category\": \"Furniture\", \"value\": 579.0, \"contribution_pct\": 9.438575899843507}, {\"product_category\": \"Office Supplies\", \"value\": 153.4, \"contribution_pct\": 2.5006520605112157}, {\"product_category\": \"Technology\", \"value\": 5402.0, \"contribution_pct\": 88.06077203964529}]",
+    "confidence_score": 0.65,
+    "explanation": "Understood the query as metric=revenue, group_by=['product_category'], filters=[], rank=None. The analytical plan was validated and then executed deterministically with pandas. No API key was configured, so the local fallback planner was used."
+  },
+  {
+    "query": "Top product in each region",
+    "generated_logic": "{\"metric\":\"revenue\",\"group_by\":[\"region\",\"product_name\"],\"filters\":[],\"aggregation\":\"sum\",\"rank\":{\"n\":1,\"order\":\"desc\",\"within_groups\":true},\"contribution_percent\":false,\"target_comparison\":false,\"time_granularity\":\"none\",\"yoy\":false,\"nested\":null}",
+    "result": "[{\"region\": \"APAC\", \"product_name\": \"Ergo Chair\", \"value\": 324.0, \"rank\": 1.0}, {\"region\": \"EMEA\", \"product_name\": \"Samsung Galaxy\", \"value\": 1288.0, \"rank\": 1.0}, {\"region\": \"NA\", \"product_name\": \"Dell XPS\", \"value\": 2068.0, \"rank\": 1.0}]",
+    "confidence_score": 0.65,
+    "explanation": "Understood the query as metric=revenue, group_by=['region', 'product_name'], filters=[], rank={'n': 1, 'order': 'desc', 'within_groups': True}. The analytical plan was validated and then executed deterministically with pandas. No API key was configured, so the local fallback planner was used."
+  },
+  {
+    "query": "YoY growth in revenue",
+    "generated_logic": "{\"metric\":\"revenue\",\"group_by\":[],\"filters\":[],\"aggregation\":\"sum\",\"rank\":null,\"contribution_percent\":false,\"target_comparison\":false,\"time_granularity\":\"none\",\"yoy\":true,\"nested\":null}",
+    "result": "[{\"year\": 2024, \"value\": 6134.4, \"previous_year\": NaN, \"yoy_growth_pct\": NaN}]",
+    "confidence_score": 0.6,
+    "explanation": "Understood the query as metric=revenue, group_by=[], filters=[], rank=None. The analytical plan was validated and then executed deterministically with pandas. No API key was configured, so the local fallback planner was used."
+  },
+  {
+    "query": "Revenue of top 3 customers per region",
+    "generated_logic": "{\"metric\":\"revenue\",\"group_by\":[\"region\",\"customer_id\"],\"filters\":[],\"aggregation\":\"sum\",\"rank\":{\"n\":3,\"order\":\"desc\",\"within_groups\":true},\"contribution_percent\":false,\"target_comparison\":false,\"time_granularity\":\"none\",\"yoy\":false,\"nested\":{\"rank_entity\":\"customer_id\",\"final_group\":\"region\"}}",
+    "result": "[{\"region\": \"APAC\", \"value\": 474.0}, {\"region\": \"EMEA\", \"value\": 2398.0}, {\"region\": \"NA\", \"value\": 3262.4}]",
+    "confidence_score": 0.65,
+    "explanation": "Understood the query as metric=revenue, group_by=['region', 'customer_id'], filters=[], rank={'n': 3, 'order': 'desc', 'within_groups': True}. The analytical plan was validated and then executed deterministically with pandas. No API key was configured, so the local fallback planner was used."
+  }
+]
